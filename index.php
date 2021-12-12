@@ -79,8 +79,6 @@ if ($result->num_rows > 0) {
 if($userdata->Registering && $userdata->emailchecked == false && $userdata->userchecked == false){ //checks if user is registering, if email is registered and if username is taken
     $sql = "INSERT INTO accountdata (AccountID, email, username, password, First_Name, Last_Name, Account_Birth, Birthday, Zip_Code, City, State, Country, Ethnicity, Job, Sexuality, Gender, Phone)
     VALUES (0000+'count+1'+525, '$userdata->Email', '$userdata->Username', '$userdata->Password', '$userdata->Name', '$userdata->LName', '$userdata->Account_Birth', '$userdata->Birthday', '$userdata->Zip_Code', '$userdata->City', '$userdata->State', '$userdata->Country', '$userdata->Ethnicity', '$userdata->Job', '$userdata->Sexuality', '$userdata->Gender', '$userdata->Phone')";
-    if ($result  == TRUE) {
-        $sql = "SELECT AccountID, Email, Username, Password, First_Name, Last_Name, Account_Birth, Birthday, Zip_Code, City, State, Country, Ethnicity, Job, Sexuality, Gender, Phone FROM accountdata";  //information to be acquired from database
             $result = $conn->query($sql); //Acquiring information into var
             $currentaccount = $userdata;
             //executing code
@@ -109,9 +107,7 @@ if ($result->num_rows > 0) {
     }
 }
 
-    } else {
-      $userdata->message = $userdata->message." Error: " . $sql . "<br>" . $conn->error;
-}
+    
 }
 else{
     if($userdata->emailchecked){
