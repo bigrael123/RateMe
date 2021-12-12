@@ -83,8 +83,7 @@ if($userdata->Registering && $userdata->emailchecked == false && $userdata->user
             $currentaccount = $userdata;
             //executing code
             $wrongpass = false;
-if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {
+if ($result) {
       $userdata->message = $userdata->message." Conta Criada!";
 	  $userdata->AccountID = $row['AccountID'];
 	  $userdata->Email = $row['Email'];
@@ -105,7 +104,6 @@ if ($result->num_rows > 0) {
       $userdata->Phone = $row['Phone'];
 	  $userdata->logged = true;
     }
-}
 
     
 }
