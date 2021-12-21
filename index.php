@@ -80,7 +80,8 @@ if($userdata->Registering && $userdata->emailchecked == false && $userdata->user
     $sql = "INSERT INTO accountdata (AccountID, email, username, password, First_Name, Last_Name, Account_Birth, Birthday, Zip_Code, City, State, Country, Ethnicity, Job, Sexuality, Gender, Phone)
     VALUES (0000+'count+1'+525, '$userdata->Email', '$userdata->Username', '$userdata->Password', '$userdata->Name', '$userdata->LName', '$userdata->Account_Birth', '$userdata->Birthday', '$userdata->Zip_Code', '$userdata->City', '$userdata->State', '$userdata->Country', '$userdata->Ethnicity', '$userdata->Job', '$userdata->Sexuality', '$userdata->Gender', '$userdata->Phone')";
              //Acquiring information into var
-	if($conn->query($sql){
+	$result = $conn->query($sql);
+            if($result){
 		$userdata->message = $userdata->message." Conta Criada!";
 	  	$userdata->logged = true;
 	}
