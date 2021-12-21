@@ -79,31 +79,14 @@ if ($result->num_rows > 0) {
 if($userdata->Registering && $userdata->emailchecked == false && $userdata->userchecked == false){ //checks if user is registering, if email is registered and if username is taken
     $sql = "INSERT INTO accountdata (AccountID, email, username, password, First_Name, Last_Name, Account_Birth, Birthday, Zip_Code, City, State, Country, Ethnicity, Job, Sexuality, Gender, Phone)
     VALUES (0000+'count+1'+525, '$userdata->Email', '$userdata->Username', '$userdata->Password', '$userdata->Name', '$userdata->LName', '$userdata->Account_Birth', '$userdata->Birthday', '$userdata->Zip_Code', '$userdata->City', '$userdata->State', '$userdata->Country', '$userdata->Ethnicity', '$userdata->Job', '$userdata->Sexuality', '$userdata->Gender', '$userdata->Phone')";
-            $result = $conn->query($sql); //Acquiring information into var
+             //Acquiring information into var
+	if($conn->query($sql){
+		$userdata->message = $userdata->message." Conta Criada!";
+	  	$userdata->logged = true;
+	}
             $currentaccount = $userdata;
             //executing code
             $wrongpass = false;
-if ($result) {
-      $userdata->message = $userdata->message." Conta Criada!";
-	  $userdata->AccountID = $row['AccountID'];
-	  $userdata->Email = $row['Email'];
-	  $userdata->Username = $row['Username'];
-      $userdata->Password = $row['Password'];
-	  $userdata->Name = $row['Name'];
-	  $userdata->LName = $row['LName'];
-      $userdata->Account_Birth = $$row['Account_Birth'];
-      $userdata->Birthday = $$row['Birthday'];
-      $userdata->Zip_Code  = $row['Zip_Code'];
-      $userdata->City = $row['City'];
-      $userdata->State = $row['State'];
-      $userdata->Country = $row['Country'];
-      $userdata->Ethnicity = $row['Ethnicity'];
-      $userdata->Job = $row['Job'];
-      $userdata->Sexuality = $row['Sexuality'];
-      $userdata->Gender = $row['Gender'];
-      $userdata->Phone = $row['Phone'];
-	  $userdata->logged = true;
-    }
 
     
 }
